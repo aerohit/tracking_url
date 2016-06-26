@@ -58,6 +58,7 @@ export default class UrlForm extends Component {
                 id="utm-source"
                 value={this.state.utm_source}
                 onChange={event => this.handleUtmSourceChange(event.target.value)}>
+                  <option value=''></option>
                   {
                     this.props.sources.map(function (source) {
                       return <option value={source.url_part} key={source.id} >{source.name}</option>
@@ -71,6 +72,7 @@ export default class UrlForm extends Component {
                 id="utm-medium"
                 value={this.state.utm_medium}
                 onChange={event => this.handleUtmMediumChange(event.target.value)}>
+                  <option value=''></option>
                   {
                     this.props.mediums.map(function (medium) {
                       return <option value={medium.url_part} key={medium.id} >{medium.name}</option>
