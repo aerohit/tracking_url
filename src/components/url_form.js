@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import trackUrl from '../utils/url';
 
 export default class UrlForm extends Component {
   constructor(props) {
@@ -34,7 +35,8 @@ export default class UrlForm extends Component {
   }
 
   utmUrl() {
-    return `${this.state.url}?utm_source=${this.state.utm_source}&utm_medium=${this.state.utm_medium}&utm_campaign=${this.state.utm_campaign}&utm_content=${this.state.utm_content}`;
+    const utm_params = Object.assign({}, this.state);
+    return trackUrl(this.state.url, utm_params);
   }
 
   render() {
