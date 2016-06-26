@@ -30,6 +30,13 @@ export default class UrlForm extends Component {
     this.setState({utm_campaign});
   }
 
+  handleUtmCampaignButton(event) {
+    const today = new Date().toISOString().substring(0, 10).replace(/-/g, '');
+    const utm_campaign = `${this.state.utm_campaign}-${today}`;
+    this.setState({utm_campaign});
+    event.preventDefault();
+  }
+
   handleUtmContentChange(utm_content) {
     this.setState({utm_content});
   }
@@ -93,16 +100,18 @@ export default class UrlForm extends Component {
               />
             </div>
             <div className="six columns">
-              <label for="utm-content">UTM Content</label>
-              <input
-                id="utm-content"
-                className="u-full-width"
-                type="text"
-                value={this.state.utm_content}
-                onChange={event => this.handleUtmContentChange(event.target.value)}
-              />
+              <label for="utm-campaign-button">Date suffix</label>
+              <input type="submit" value="Add" onClick={event => this.handleUtmCampaignButton(event)} />
             </div>
           </div>
+          <label for="utm-content">UTM Content</label>
+          <input
+            id="utm-content"
+            className="u-full-width"
+            type="text"
+            value={this.state.utm_content}
+            onChange={event => this.handleUtmContentChange(event.target.value)}
+          />
         </form>
         <div>Output: {this.utmUrl()}</div>
       </div>
