@@ -1,5 +1,9 @@
 import URI from 'urijs';
 
+function normalize(param) {
+  return param.trim().toLowerCase().replace(/ /g, '_');
+}
+
 function trackUrl (base_url, utm_params) {
   const utm_source = utm_params.utm_source;
   const utm_medium = utm_params.utm_medium;
@@ -10,11 +14,13 @@ function trackUrl (base_url, utm_params) {
   );
   if(areValidParams) {
     const url = new URI(base_url);
-    url.addQuery("utm_source", utm_source);
-    url.addQuery("utm_medium", utm_medium);
-    url.addQuery("utm_campaign", utm_campaign);
-    if (utm_content !== undefined && utm_content.trim().length > 0)
-    url.addQuery("utm_content", utm_content);
+    url.addQuery("utm_source", normalize(utm_source));
+    url.addQuery("utm_medium", normalize(utm_medium));
+    url.addQuery("utm_campaign", normalize(utm_campaign));
+    if (utm_content !== undefined && utm_content.trim().length > 0) {
+      const content = normalize(utm_content);
+      url.addQuery("utm_content", content);
+    }
     return url.toString();
   }
   return "not-all-params";
