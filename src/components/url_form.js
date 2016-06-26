@@ -113,7 +113,9 @@ export default class UrlForm extends Component {
             onChange={event => this.handleUtmContentChange(event.target.value)}
           />
         </form>
-        <div>Output: {this.utmUrl()}</div>
+        <div>UTM Url:
+          <p style={{ color: "green" }}>{this.utmUrl()}</p>
+        </div>
       </div>
     );
   }
