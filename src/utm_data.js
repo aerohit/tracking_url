@@ -12,12 +12,12 @@ export default {
     ],
 
     mediums: [
-      {"id": 12, "name": "Social Organic", "url_part": "social-organic"},
-      {"id": 13, "name": "Social Paid", "url_part": "social-paid"},
-      {"id": 10, "name": "Paid Search Brand", "url_part": "paid-search-brand"},
-      {"id": 11, "name": "Paid Search Nonbrand", "url_part": "paid-search-nonbrand"},
-      {"id": 15, "name": "Revenue Share", "url_part": "revenue-share"},
-      {"id": 16, "name": "Email", "url_part": "email"},
+      {"id": 10, "name": "Social Organic", "url_part": "social-organic"},
+      {"id": 11, "name": "Social Paid", "url_part": "social-paid"},
+      {"id": 12, "name": "Paid Search Brand", "url_part": "paid-search-brand"},
+      {"id": 13, "name": "Paid Search Nonbrand", "url_part": "paid-search-nonbrand"},
+      {"id": 14, "name": "Revenue Share", "url_part": "revenue-share"},
+      {"id": 15, "name": "Email", "url_part": "email"},
       {"id": 16, "name": "Display", "url_part": "display"},
       {"id": 17, "name": "Partner", "url_part": "partner"}
     ]
