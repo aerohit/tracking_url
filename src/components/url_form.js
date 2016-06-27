@@ -50,17 +50,18 @@ export default class UrlForm extends Component {
     return (
       <div>
         <form>
-          <label for="base-url">Base Url</label>
+          <label for="base-url">Landing page URL<span>*</span></label>
           <input
             id="base-url"
             className="u-full-width"
             type="text"
+            placeholder="Copy/paste landing page here..."
             value={this.state.url}
             onChange={event => this.handleUrlChange(event.target.value)}
           />
           <div className="row">
             <div className="six columns">
-              <label for="utm-source">UTM Source</label>
+              <label for="utm-source">UTM Source<span>*</span></label>
               <select
                 id="utm-source"
                 value={this.state.utm_source}
@@ -74,7 +75,7 @@ export default class UrlForm extends Component {
               </select>
             </div>
             <div className="six columns">
-              <label for="utm-medium">UTM Medium</label>
+              <label for="utm-medium">UTM Medium<span>*</span></label>
               <select
                 id="utm-medium"
                 value={this.state.utm_medium}
@@ -90,7 +91,7 @@ export default class UrlForm extends Component {
           </div>
           <div className="row">
             <div className="six columns">
-              <label for="utm-campaign">UTM Campaign</label>
+              <label for="utm-campaign">UTM Campaign<span>*</span></label>
               <input
                 id="utm-campaign"
                 className="u-full-width"
@@ -109,13 +110,26 @@ export default class UrlForm extends Component {
             id="utm-content"
             className="u-full-width"
             type="text"
+            placeholder="Optional..."
             value={this.state.utm_content}
             onChange={event => this.handleUtmContentChange(event.target.value)}
           />
-        </form>
-        <div>UTM Url:
-          <p style={{ color: "green" }}>{this.utmUrl()}</p>
+        <div className="row">
+          <div className="twelve columns">
+          <label for="utm-output">Final Tracking URL</label>
+            <input
+              id="utm-output"
+              className="u-full-width"
+              type="text"
+              value={this.utmUrl()}
+              style={{ background: "lightyellow"}}
+              readonly
+            />
+          </div>
         </div>
+        </form>
+
+
       </div>
     );
   }
