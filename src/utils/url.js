@@ -5,8 +5,8 @@ function normalize(param) {
 }
 
 function trackUrl (base_url, utm_params) {
-  const utm_source = utm_params.utm_source;
-  const utm_medium = utm_params.utm_medium;
+  const utm_source = utm_params.utm_source.url_part || utm_params.utm_source;
+  const utm_medium = utm_params.utm_medium.url_part || utm_params.utm_medium;
   const utm_campaign = utm_params.utm_campaign;
   const utm_content = utm_params.utm_content;
   const areValidParams = [base_url, utm_source, utm_medium, utm_campaign].every(p =>
@@ -22,8 +22,10 @@ function trackUrl (base_url, utm_params) {
       url.addQuery("utm_content", content);
     }
     return url.toString();
+    console.log("check" + url);
   }
-  return "not-all-params";
+
+  return "Please fill in all required fields...";
 }
 
 module.exports = trackUrl;
