@@ -108,6 +108,7 @@ export default class UrlForm extends Component {
                   name="utm-source"
                   value={this.state.utm_source}
                   onChange={v => this.handleUtmSourceChange(v)}
+                  onInputChange={v => this.handleUtmSourceChange(v)}
                   labelKey='name'
                   resetValue=''
                   openOnFocus
@@ -126,6 +127,7 @@ export default class UrlForm extends Component {
                   name="utm-medium"
                   value={this.state.utm_medium}
                   onChange={v => this.handleUtmMediumChange(v)}
+                  onInputChange={v => this.handleUtmMediumChange(v)}
                   openOnFocus
                   searchable
                   labelKey='name'
