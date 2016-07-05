@@ -2,6 +2,9 @@
   "name": "tracking_url",
   "version": "1.0.0",
   "description": "URL builder for GA",
+  "engines": {
+    "node": "6.2.2"
+  },
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
     "prod": "NODE_ENV=production node server.js",
