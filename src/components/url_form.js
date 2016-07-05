@@ -123,20 +123,17 @@ export default class UrlForm extends Component {
             </div>
             <div className="six columns">
               <label for="utm-medium">UTM Medium*</label>
-                <Select
-                  name="utm-medium"
-                  value={this.state.utm_medium}
-                  onChange={v => this.handleUtmMediumChange(v)}
-                  onInputChange={v => this.handleUtmMediumChange(v)}
-                  openOnFocus
-                  searchable
-                  labelKey='name'
-                  resetValue=''
-                  onBlurResetsInput={true}
-                  valueKey='url_part'
-                  noResultsText='Try another one'
-                  options={this.props.mediums}
-                  />
+              <select
+                id="utm-medium"
+                value={this.state.utm_medium}
+                onChange={event => this.handleUtmMediumChange(event.target.value)}>
+                  <option value=''></option>
+                  {
+                    this.props.mediums.map(function (medium) {
+                      return <option value={medium.url_part} key={medium.id} >{medium.name}</option>
+                    })
+                  }
+              </select>
             </div>
           </div>
           <div className="row">
